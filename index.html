@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<link href="static/css/jquery-ui.min.css" rel='stylesheet'/>
+<link href="static/css/fullcalendar.css" rel='stylesheet'/>
+<link href="static/css/fullcalendar.print.css" rel='stylesheet' media='print'/>
+<link href="static/css/bootstrapmodal.css" rel='stylesheet'/>
+
+<div id='bootstrapModalFullCalendar'></div>
+
+<script src="static/javascript/moment.min.js"></script>
+<script src="static/javascript/jquery.min.js"></script>
+<script src="static/javascript/fullcalendar.min.js"></script>
+<script src="static/javascript/bootstrapmodal.min.js"></script>
+
+<script>
+    $(document).ready(function() {
+        var url = 'http://localhost/calendar/events.html';
+        $('#bootstrapModalFullCalendar').fullCalendar({
+            events: url,
+            header: {
+                left: 'prev,next today',
+                center: 'title',
+                right: 'month,basicWeek,basicDay'
+            },
+            eventLimit: true,
+            eventClick:  function(event, jsEvent, view) {
+                window.location = event.url;
+            }
+        });
+    });
+</script>
+
+</body>
+</html>
