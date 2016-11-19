@@ -1,6 +1,6 @@
 Documentation: https://fullcalendar.io/docs
 
-== Utilisation ==
+##Utilisation
 Installer le repository dans un serveur web (vous pouvez en 'localhost')
 Lancer le fichier index.html dans votre navigateur
 
