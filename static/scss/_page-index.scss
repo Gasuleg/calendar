@@ -1,0 +1,21 @@
+.page-index{
+	width:800px;
+	margin:auto;
+	&__title{
+		width:100px;
+		float:top;
+		margin:auto;
+	}
+	&__filter{
+		width: 200px;
+		float:left;
+	}
+	&__calendar{
+		width:600px;
+		margin:auto;
+	}
+	&__filter.component{
+		float:left;
+	}
+
+}

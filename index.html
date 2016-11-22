@@ -10,8 +10,25 @@
 <link href="static/css/fullcalendar.css" rel='stylesheet'/>
 <link href="static/css/fullcalendar.print.css" rel='stylesheet' media='print'/>
 <link href="static/css/bootstrapmodal.css" rel='stylesheet'/>
+<link href="static/css/app.css" rel='stylesheet'/>
 
-<div id='bootstrapModalFullCalendar'></div>
+<div class='title page-index__title'>
+  Calendar
+</div>
+
+<div class='filter page-index__filter'>
+  Filtre
+  <div class='filter__title'>
+     <input type="checkbox" name="camion" value="camion" id="camion"onclick="updateFilter(this.name)"><label for="camion"> Camion</label>
+     <input type="checkbox" name="voiture" value="voiture" id="voiture"onclick="updateFilter(this.name)"><label for="voiture"> Voiture</label>
+     <input type="checkbox" name="remorques" value="remorques" id="remorques" onclick="updateFilter(this.name)"><label for="remorques"> Remorques</label>
+  </div>
+</div>
+
+<div class='page-index__calendar'>
+  <div id='bootstrapModalFullCalendar'>
+  </div>
+</div>
 
 <script src="static/javascript/moment.min.js"></script>
 <script src="static/javascript/jquery.min.js"></script>
@@ -19,21 +36,36 @@
 <script src="static/javascript/bootstrapmodal.min.js"></script>
 
 <script>
-    $(document).ready(function() {
-        var url = 'http://localhost/calendar/events.html';
-        $('#bootstrapModalFullCalendar').fullCalendar({
-            events: url,
-            header: {
-                left: 'prev,next today',
-                center: 'title',
-                right: 'month,basicWeek,basicDay'
-            },
-            eventLimit: true,
-            eventClick:  function(event, jsEvent, view) {
-                window.location = event.url;
-            }
-        });
-    });
+var events = $.post("http://localhost/calendar/events.html");
+var data = [];
+
+function displayCalendar(){
+  $(document).ready(function() {
+      $('#bootstrapModalFullCalendar').fullCalendar({
+          events: events,
+          header: {
+              left: 'prev,next today',
+              center: 'title',
+              right: 'month,basicWeek,basicDay'
+          },
+          eventLimit: true,
+          eventClick:  function(event, jsEvent, view) {
+              window.location = event.url;
+          }
+      });
+  });
+}
+  function updateFilter(name){
+      var i = data.indexOf(name);
+      if(i!=-1){
+        data.splice(i,1);
+      }
+      else{
+        data.push(name);
+      }
+  }
+
+  displayCalendar();
 </script>
 
 </body>

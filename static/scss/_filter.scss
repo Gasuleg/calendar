@@ -1,0 +1,13 @@
+.filter{
+	display : block;
+	background : red;
+
+	&__title {
+		display : block;
+		font-weight: bold;
+	}
+
+	&__item {
+
+	}
+}

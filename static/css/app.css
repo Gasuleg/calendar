@@ -1,0 +1,29 @@
+.page-index {
+  width: 800px;
+  margin: auto; }
+  .page-index__title {
+    width: 100px;
+    float: top;
+    margin: auto; }
+  .page-index__filter {
+    width: 200px;
+    float: left; }
+  .page-index__calendar {
+    width: 600px;
+    margin: auto; }
+  .page-index__filter.component {
+    float: left; }
+
+.filter {
+  display: block;
+  background: red; }
+  .filter__title {
+    display: block;
+    font-weight: bold; }
+
+.title {
+  display: block; }
+
+.filter.component {
+  background: green;
+  display: block; }
